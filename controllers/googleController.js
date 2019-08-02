@@ -9,6 +9,7 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     const { query: params } = req;
+    // axios query to googleapis to find all books
     axios
       .get("https://www.googleapis.com/books/v1/volumes", {
         params
@@ -25,12 +26,14 @@ module.exports = {
         )
       )
       .then(apiBooks =>
+        // check if books exists in our database
         db.Book.find().then(dbBooks =>
           apiBooks.filter(apiBook =>
             dbBooks.every(dbBook => dbBook.googleId.toString() !== apiBook.id)
           )
         )
       )
+      // return json of books that don't exist in our database
       .then(books => res.json(books))
       .catch(err => res.status(422).json(err));
   }

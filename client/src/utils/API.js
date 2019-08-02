@@ -1,5 +1,7 @@
+// Import axios for client side API calls
 import axios from "axios";
 
+//define axios routes
 export default {
   // Gets books from the Google API
   getBooks: function(q) {

@@ -1,5 +1,7 @@
+// Import react
 import React from "react";
 
+// Define Form component with attributes
 function Form({ q, handleInputChange, handleFormSubmit }) {
   return (
     <form>

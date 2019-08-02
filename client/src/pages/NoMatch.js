@@ -1,7 +1,10 @@
+// Import react
 import React from "react";
+// Import components
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 
+// Define no match page
 function NoMatch() {
   return (
     <Container fluid>

@@ -1,13 +1,17 @@
+// Import react
 import React, { Component } from "react";
+// Import components
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Form from "../components/Form";
 import Book from "../components/Book";
 import Footer from "../components/Footer";
-import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
+// Import API routes
+import API from "../utils/API";
 
+// Define Home page
 class Home extends Component {
   state = {
     books: [],

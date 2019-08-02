@@ -1,5 +1,7 @@
+// Import react
 import React from "react";
 
+// Define react component with attributes
 function Card({ icon, title, children }) {
   return (
     <div className="card mt-4">

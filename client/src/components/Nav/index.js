@@ -1,7 +1,11 @@
+// Import react
 import React, { Component } from "react";
+// Import react router library for links
 import { Link } from "react-router-dom";
+// Import css style sheet
 import "./style.css";
 
+// Define Nav component with attributes and links
 class Nav extends Component {
   state = {
     open: false,

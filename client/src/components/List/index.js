@@ -1,4 +1,6 @@
+// Import react
 import React from "react";
+// Import css style sheet
 import "./style.css";
 
 // This component exports both the List and ListItem components

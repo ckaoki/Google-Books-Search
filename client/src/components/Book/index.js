@@ -1,8 +1,12 @@
+// Import react
 import React from "react";
+// Import other local components used in this component
 import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
+// Import css style sheet
 import "./style.css";
 
+// Define Book component with attributes
 function Book({ title, subtitle, authors, link, description, image, Button }) {
   return (
     <ListItem>

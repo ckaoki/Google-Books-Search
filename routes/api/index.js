@@ -1,5 +1,8 @@
+// Import node modules and local js route files
 const path = require("path");
 const router = require("express").Router();
+
+// Import books and google routing files.
 const bookRoutes = require("./books");
 const googleRoutes = require("./google");
 

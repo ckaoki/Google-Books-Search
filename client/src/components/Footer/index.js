@@ -1,5 +1,6 @@
+// Import react
 import React from "react";
-
+// Define Footer component with attributes
 function Footer() {
   return (
     <footer>
