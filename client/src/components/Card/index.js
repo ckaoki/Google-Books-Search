@@ -1,9 +1,10 @@
 // Import react
 import React from "react";
 
-// Define react component with attributes
+// Define card component
 function Card({ icon, title, children }) {
   return (
+    // create bootstarp card
     <div className="card mt-4">
       <div className="card-header">
         <h3>

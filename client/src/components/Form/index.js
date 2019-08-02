@@ -1,10 +1,11 @@
 // Import react
 import React from "react";
 
-// Define Form component with attributes
+// Define Form component to search for books
 function Form({ q, handleInputChange, handleFormSubmit }) {
   return (
     <form>
+      {/* text input for book title */}
       <div className="form-group">
         <label htmlFor="Query">
           <strong>Book</strong>
@@ -20,6 +21,7 @@ function Form({ q, handleInputChange, handleFormSubmit }) {
           required
         />
       </div>
+      {/* submit button */}
       <div className="pull-right">
         <button
           onClick={handleFormSubmit}

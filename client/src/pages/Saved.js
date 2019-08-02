@@ -16,10 +16,13 @@ class Saved extends Component {
     books: []
   };
 
+  // get saved books when component is loaded
   componentDidMount() {
     this.getSavedBooks();
   }
 
+  // query to mongo to return saved books
+  // uses a get route defined in API.js
   getSavedBooks = () => {
     API.getSavedBooks()
       .then(res =>
@@ -30,15 +33,18 @@ class Saved extends Component {
       .catch(err => console.log(err));
   };
 
+  // function to perform a delete route of book with specified id.
   handleBookDelete = id => {
     API.deleteBook(id).then(res => this.getSavedBooks());
   };
 
+  // render saved books
   render() {
     return (
       <Container>
         <Row>
           <Col size="md-12">
+            {/* Jumbotron to display search message */}
             <Jumbotron>
               <h1 className="text-center">
                 <strong>(React) Google Books Search</strong>
@@ -49,9 +55,11 @@ class Saved extends Component {
         </Row>
         <Row>
           <Col size="md-12">
+            {/* card to display save books */}
             <Card title="Saved Books" icon="download">
               {this.state.books.length ? (
                 <List>
+                  {/* card is created for each book */}
                   {this.state.books.map(book => (
                     <Book
                       key={book._id}
@@ -73,6 +81,7 @@ class Saved extends Component {
                   ))}
                 </List>
               ) : (
+                // display message if no books are saved
                 <h2 className="text-center">No Saved Books</h2>
               )}
             </Card>

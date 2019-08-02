@@ -13,12 +13,15 @@ import API from "../utils/API";
 
 // Define Home page
 class Home extends Component {
+  // set state
   state = {
     books: [],
     q: "",
     message: "Search For A Book To Begin!"
   };
 
+  // handle user input from book search form.
+  // Allows keys strokes to be displayed
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -26,13 +29,16 @@ class Home extends Component {
     });
   };
 
+  // function to perform API call to search for books
   getBooks = () => {
     API.getBooks(this.state.q)
       .then(res =>
+        // set state of books
         this.setState({
           books: res.data
         })
       )
+      // catch empty search result
       .catch(() =>
         this.setState({
           books: [],
@@ -41,11 +47,14 @@ class Home extends Component {
       );
   };
 
+  // handle button click to submit form
+  // calls function to search for books
   handleFormSubmit = event => {
     event.preventDefault();
     this.getBooks();
   };
 
+  // performs a post route to save a book by id into mongo 
   handleBookSave = id => {
     const book = this.state.books.find(book => book.id === id);
 
@@ -60,11 +69,13 @@ class Home extends Component {
     }).then(() => this.getBooks());
   };
 
+  // render the home page
   render() {
     return (
       <Container>
         <Row>
           <Col size="md-12">
+            {/* main page message */}
             <Jumbotron>
               <h1 className="text-center">
                 <strong>(React) Google Books Search</strong>
@@ -73,6 +84,7 @@ class Home extends Component {
             </Jumbotron>
           </Col>
           <Col size="md-12">
+            {/* book search section */}
             <Card title="Book Search" icon="far fa-book">
               <Form
                 handleInputChange={this.handleInputChange}
@@ -84,9 +96,11 @@ class Home extends Component {
         </Row>
         <Row>
           <Col size="md-12">
+            {/* section to displays search results */}
             <Card title="Results">
               {this.state.books.length ? (
                 <List>
+                  {/* create a card for each book returned */}
                   {this.state.books.map(book => (
                     <Book
                       key={book.id}
@@ -108,6 +122,7 @@ class Home extends Component {
                   ))}
                 </List>
               ) : (
+                // container to display messages
                 <h2 className="text-center">{this.state.message}</h2>
               )}
             </Card>
